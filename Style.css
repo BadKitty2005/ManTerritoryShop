@@ -1,0 +1,722 @@
+/* styles.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+  font-weight: bold;
+}
+/* Анимация для основных фото */
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Анимация для верхних фото */
+@keyframes slideDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Справа налево */
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Навбар */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.burger span {
+  background: white;
+  height: 2px;
+  width: 100%;
+}
+
+/* Мобильное меню */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  font-size: 110px;
+  text-align: center;
+}
+
+.overlay a {
+  color: white;
+  font-size: 24px;
+  margin: 15px 0;
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  cursor: pointer;
+  color: #F5F5F5;
+}
+
+/* Первый контейнер */
+#container1 {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative; /* Этот контейнер теперь является "точкой отсчета" для дочерних элементов */
+  background-color: black;
+}
+/* Анимация для заголовка */
+.animated-text {
+  position: relative; /* Позиционируем абсолютно */
+  top: 50%;
+  transform: translate(-50%, -50%); /* Центрируем по горизонтали и вертикали */
+  font-size: 70px;
+  font-weight: bold;
+  animation: slideDown 1s ease-out forwards;
+  opacity: 0;
+  color: #ffffff;
+  z-index: 1; /* Текст находится на более низком слое */
+  white-space: nowrap; /* Добавлено, чтобы текст не переноси */
+  margin-top: -16em;
+}
+
+/* Анимация для подзаголовка */
+.bottom-text {
+position: relative; /* Позиционируем абсолютно */
+  top: 60%; /* Чуть ниже заголовка */
+  left: 50%;
+  transform: translateX(-50%); /* Центрируем по горизонтали */
+  font-size: 24px;
+  animation: fadeIn 1.5s ease-out 1s forwards;
+  opacity: 0;
+  color: #ffffff;
+  z-index: 1; /* Текст находится на более низком слое */
+  margin-top: -3em;
+}
+
+/* Фото */
+.image-wrapper {
+position: relative; /* Позиционируем абсолютно */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрируем по горизонтали и вертикали */
+  animation: fadeIn 2s ease-out 2s forwards;
+  opacity: 0;
+  z-index: 3; /* Фото находится на самом верхнем слое, поверх текста */
+  margin-top: 3.2em;
+  margin-bottom: 0em;
+}
+
+.man-photo {
+  max-width: 100%;
+  height: auto;
+}
+.discount-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom,rgb(255, 102, 0),     /* оранжевый держится до 70% */
+    #3d271b);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px 50px;
+  z-index: 9999;
+  overflow: hidden; /* скрываем лишнее */
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; /* чтобы начиналось справа */
+  animation: scrollText 12s linear infinite;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.discount-banner .close-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.scroll-down {
+  margin-top: 20px;
+  width: 30px;
+  height: auto;
+}
+
+/* Карточки */
+.cards {
+    display: flex;
+  flex-direction: row; 
+  flex-wrap: nowrap; 
+  color: #ffffff;
+  animation: slideUp 1s ease-out 0.5s forwards;
+}
+
+
+.card {
+        background: rgba(0, 0, 0, 0.6);
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s;
+  backdrop-filter: blur(8px);
+    height: 22em;
+  width: 26em;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.card-content h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+}
+
+.card:nth-child(1) {
+  background-image: url('images/img1.JPG');
+}
+.card:nth-child(2) {
+  background-image: url('images/IMG_7836.JPG');
+}
+.card:nth-child(3) {
+  background-image: url('images/IMG_7837.JPG');
+}
+
+/* Инфо */
+.info {
+  display: flex;
+  flex-direction: row;
+  padding: 40px 20px;
+  margin-bottom: -1em;
+  gap: 5px;
+  font-size: 36px;
+}
+.info-text{
+  width: 40%;
+}
+
+.info-text .big-number {
+  font-size: 130px;
+  font-weight: bold;
+  background: linear-gradient(to bottom,rgb(255, 102, 0) 0%,      /* старт */
+    rgb(255, 102, 0) 40%,     /* оранжевый держится до 70% */
+    #000033 100%    /* плавный переход к тёмно-синему */);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.toggle-section {
+  margin-top: 20px;
+}
+
+.toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  padding: 10px 0;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.toggle-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 27px;
+}
+
+.small-note {
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.highlighted {
+  font-weight: bold;
+  font-size: 40px;
+    background: linear-gradient(to bottom,rgb(255, 102, 0), #000033);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.image-stack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.photo {
+  position: relative;
+  animation: slideUp 1s ease forwards;
+  opacity: 0;
+}
+.photo1 {
+  position: relative;
+  opacity: 0;
+  z-index: 3;
+  margin-left: 1.5em;
+  animation: slideUp 1s ease-out 3s forwards;
+}
+.photo2 {
+  position: relative;
+  animation: slideUp 1s ease-out 3.5s forwards;
+  opacity: 0;
+  z-index: 2;
+  margin-left: -3.5em;
+}
+.photo3 {
+  position: relative;
+  animation: slideUp 1s ease-out 3.8s forwards;
+  opacity: 0;
+  z-index: 1;
+  margin-left: -4em;
+}
+.top-photo1 {
+  position: relative;
+  animation: slideDown 1s ease-out 4s forwards;
+  opacity: 0;
+  z-index: 5;
+  margin-left: -7em;
+}
+.top-photo2 {
+  animation: slideDown 1s ease-out 4.2s forwards;
+  opacity: 0;
+  z-index: 5;
+  margin-left: -11em;
+}
+.top-photo3 {
+  position: relative;
+  animation: slideDown 1s ease-out 4.4s forwards;
+  opacity: 0;
+  z-index: 5;
+  margin-left: -11em;
+}
+.photo img {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 250px;
+}
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Каталог */
+.catalog {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #ffffff;
+}
+.catalog-left{
+  width: 50%;
+}
+.catalog-right{
+  width: 45%;
+}
+#promo-box {
+  background: linear-gradient(to bottom,rgb(255, 102, 0) 0%,      /* старт */
+    rgb(255, 102, 0) 50%,     /* оранжевый держится до 70% */
+    #8f3501 100%    /* плавный переход к тёмно-синему */);
+  color: #F5F5F5;
+  border-radius: 1px;
+  padding: 15px;
+  margin-top: 10px;
+  position: relative;
+  width: 550px;
+}
+
+#close-promo {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+/* Контакты */
+.contacts {
+  display: flex;
+  flex-direction: row; /* текст и фото в линию */
+  align-items: center; /* выравнивание по вертикали */
+  justify-content: center; /* выравнивание по горизонтали */
+  gap: 50px; /* расстояние между левым и правым блоком */
+  padding: 40px 20px;
+  background-color: #131313;
+  color: #eeeeee;
+  font-size: 40px;
+  flex-wrap: wrap; /* чтобы на узких экранах переносилось */
+}
+
+.highlight-circle {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  padding: 2px 6px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.phone {
+  font-weight: bold;
+  font-size: 43px;
+
+  text-wrap: wrap;
+  color: #ffffff;
+  margin: 30px 0px;
+  padding: 10px;
+}
+
+.contacts-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Расстояние между картой и кнопкой */
+  position: relative;
+}
+
+.route-btn {
+  padding: 20px;
+  cursor: pointer;
+  z-index: 6;
+  margin-top: -3.5em;
+  margin-left: -9em;
+  transition: slideUp 0.3s ease;
+  width: fit-content; /* Ширина по содержимому */
+
+}
+
+/* Убираем старые стили */
+.contact-buttons{
+  cursor: pointer;
+}
+.map {
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  border: none;
+}
+/* Мобильная адаптация */
+@media (max-width: 1024px) {
+  /* --- Navbar --- */
+  .navbar {
+    padding: 8px 15px;
+  }
+  .logo img {
+    width: 150px;
+    height: auto;
+  }
+  .social-icons {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* текст вверху, фото внизу */
+    align-items: center;
+    height: 100vh; /* на всю высоту экрана */
+    padding: 80px 10px 40px;
+    text-align: center;
+  }
+
+  .animated-text {
+    font-size: 36px;
+    margin: 0px;
+    position: static;
+    transform: none;
+    white-space: normal;
+    order: 1;
+  }
+
+  .bottom-text {
+    font-size: 18px;
+    margin-top: 10px;
+    position: static;
+    transform: none;
+    order: 2;
+  }
+
+  .image-wrapper {
+    order: 3;
+    margin-top: auto; /* гарантированно уходит вниз */
+    height: 120%;
+  }
+  .image-wrapper img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Карточки */
+  .cards {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+  }
+
+  /* Инфо */
+  .info {
+    flex-direction: column;
+    font-size: 22px;
+  }
+  .info-text {
+    width: 100%;
+  }
+  .info-text .big-number {
+    font-size: 80px;
+  }
+
+  /* Фото блок (нормально в центр) */
+/* Контейнер с фото */
+  .image-stack {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;              /* убираем обычный gap */
+    position: relative;
+    flex-wrap: nowrap;   /* всегда в одну линию */
+    height: 40%;
+  }
+
+  .image-stack img {
+    max-width: 45vw;     /* каждая картинка адаптивная */
+    height: auto;
+  }
+
+  .photo1 { 
+    z-index: 3; 
+    margin-right: 3vw; /* накладываем на следующее фото */
+  }
+  .photo2 { 
+    z-index: 2; 
+    margin-right: -3vw;
+  }
+  .photo3 { 
+    z-index: 1;
+    margin-right: 10vw;
+  }
+
+  .top-photo1,
+  .top-photo2,
+  .top-photo3 {
+    position: absolute;
+    top: 0;
+    transform: translateY(-40%) scale(0.7);
+    z-index: 5;
+    margin-top: 20vh;
+
+    width: 1vw;   /* ширина = 20% ширины экрана */
+    max-width: 30px; /* ограничение, чтобы не стали гигантскими */
+    height: auto;  /* сохраняем пропорции */
+  }
+  .top-photo1 img,
+  .top-photo2 img,
+  .top-photo3 img {
+    width: 20vw !important;   /* ширина от экрана (20% экрана) */
+    max-width: 60px;         /* ограничение, чтобы не стали слишком большими */
+    height: auto !important;  /* сохраняем пропорции */
+  }
+
+  .top-photo1 { left: 120%; }
+  .top-photo2 { left: 115%; }
+  .top-photo3 { left: 75%; }
+
+  /* Каталог */
+  .catalog {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .catalog-left,
+  .catalog-right {
+    width: 100%;
+  }
+  #promo-box {
+    width: 100%;
+    max-width: 90%;
+    margin: 10px auto;
+  }
+  .aror img{
+    width: 100%;
+    height: auto;
+  }
+  /* Контакты */
+  .contacts {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    font-size: 24px;
+  }
+  .addrs{
+    font-size: 28px !important;
+  }
+  .contacts-left p {
+    font-size: 27px !important;
+  }
+  .phone {
+    font-size: 30px !important;
+  }
+  .contacts-right img {
+    max-width: 90%;
+    height: auto;
+  }
+  .route-btn{
+    margin-top: -10vh;
+    margin-left: -2vh;
+
+  }
+  .route-btn img{
+    max-width: 100%;
+    height: auto;
+  }
+}

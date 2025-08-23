@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин</title>
+  <link rel="stylesheet" href="Style.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Навбар -->
+  <header class="navbar">
+    <div class="logo"><img src="images/logo (1).png" height="30px" width="210px"></div>
+    <div class="social-icons">
+      <a href="https://vk.com" target="_blank"><i class="fab fa-vk"></i></a>
+      <a href="https://t.me" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <div class="burger" id="burger-menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <span class="close-btn" id="close-menu">&times;</span>
+      <a href="#cardds">О магазине</a><br>
+      <a href="#catalog">Каталог</a><br>
+      <a href="#contacts">Контакты</a><br>
+    </div>
+  </div>
+
+  <!-- Первый контейнер -->
+    <section id="container1" class="container1">
+                  <div class="image-wrapper">
+        <img src="images/man.png" alt="Мужчина" height="750px" width="450px"/>
+      </div>
+        <h1 class="animated-text">ТЕРРИТОРИЯ МУЖСКОГО СТИЛЯ</h1>
+        
+        <div class="bottom-text">
+          МАГАЗИН МУЖСКОЙ ОДЕЖДЫ И АКСЕССУАРОВ
+      </div>
+</div>
+<div class="discount-banner" id="discountBanner">
+  <div class="scrolling-text">
+    ЛЕТНЯЯ РАСПРОДАЖА! СКИДКА НА ВЕСЬ АССОРТИМЕНТ 50%! УСПЕЙ КУПИТЬ ДО 31 АВГУСТА! ЛЕТНЯЯ РАСПРОДАЖА! СКИДКА НА ВЕСЬ АССОРТИМЕНТ 50%! УСПЕЙ КУПИТЬ ДО 31 АВГУСТА!
+  </div>
+  <button class="close-btn" onclick="document.getElementById('discountBanner').style.display='none'">×</button>
+</div>
+    </section>
+
+  <!-- Второй контейнер -->
+  <section class="cards" id="cardds">
+    <div class="card">
+      <div class="card-content">
+        <h2>КОЛЛЕКЦИЯ КОСТЮМОВ</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h2>ПОВСЕДНЕВНАЯ ОДЕЖДА В СТИЛЕ CASUAL</h2>
+        <p>РУБАШКИ, БРЮКИ, ПИДЖАКИ, ФУТБОЛКИ И ПОЛО, ЖИЛЕТКИ, ТРИКОТАЖ</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h2>АКСЕССУАРЫ ДЛЯ МУЖЧИН</h2>
+        <p>ИЗДЕЛИЯ ИЗ НАТУРАЛЬНОЙ КОЖИ, ГАЛСТУКИ, БАБОЧКИ, БРОШИ, НОСКИ</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Третий контейнер -->
+  <section class="info">
+    <div class="info-text">
+      <p>В НАШЕМ АССОРТИМЕНТЕ БОЛЕЕ <span class="big-number">100</span> МОДЕЛЕЙ КОСТЮМОВ <br>
+      <div class="toggle-section">
+        <div class="toggle-item">
+          <p>РАЗМЕРЫ</p>
+          <button class="toggle-btn" data-target="sizes">+</button>
+        </div>
+        <div class="toggle-content" id="sizes">ОТ 44 ДО 66</div>
+        <div class="toggle-item">
+          <p>РОСТ</p>
+          <button class="toggle-btn" data-target="height">+</button>
+        </div>
+        <div class="toggle-content" id="height">ОТ 170см ДО 210см</div>
+      </div>
+      <p class="small-note">*подбираем отдельно размеры пиджака и брюк, бесплатно подшиваем брюки по длине и подготавливаем костюм к мероприятию</p>
+      <h3>СТОИМОСТЬ</h3>
+      <p class="highlighted">ОТ 18.000р. ДО 23.000р.</p>
+    </div>
+    <div class="info-images">
+      <div class="image-stack">
+        <div class="photo1"><img src="images/costumephoto.png" alt="suit1" width="370px" height="670px"></div>
+        <div class="photo2"><img src="images/photo2.png" alt="suit2" width="370px" height="670px"></div>
+        <div class="photo3"><img src="images/photo3.png" alt="suit3" width="370px" height="670px"></div>
+        <div class="top-photo1"><img src="images/Group 1.png" alt="new1" width="80px" height="80px"></div>
+    <div class="top-photo2"><img src="images/Group 2.png" alt="new2" width="80px" height="80px"></div>
+    <div class="top-photo3"><img src="images/Group 3.png" alt="new3" width="80px" height="80px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="catalog-left">
+      <h1 style="font-size: 55px;">КАТАЛОГ ТОВАРОВ</h1>
+      <div id="promo-box">
+        <span id="close-promo">&times;</span>
+        <p>Летняя распродажа!</p>
+        <p>Скидка на весь ассортимент до 50%</p>
+      </div>
+    </div>
+    <div class="catalog-right">
+      <p style="margin-bottom: 2em;">Обращаем ваше внимание, что каталог товаров носит информационный характер и все товары вы можете приобрести только в нашем офлайн-магазине</p>
+      <a href="https://vk.com" target="_blank" class="aror"><img src="images/arrowor.png" alt="Перейти" width="400px" height="140px"></a>
+      <p class="small-note">*не является публичной офертой</p>
+    </div>
+  </section>
+
+  <!-- Пятый контейнер -->
+  <section class="contacts" id="contacts">
+    <div class="contacts-left">
+      <p class="addrs" style="font-size: 60px; margin-top: 1em;">Молодежная, 6</p>
+      <p style="font-size: 30px;">Работаем ежедневно с 12:00 до 20:00</p>
+      <p style="font-size: 30px;">без предварительной записи</p>
+      <p class="phone">+7 (3852) 60-80-24</p>
+      <div class="contact-buttons">
+        <a href="https://t.me"><img src="images/vk.png" width="100px" height="85px"></a>
+        <a href="//wa.me"><img src="images/wt.png" width="100px" height="92px"></a>
+        <a href="https:t.me"><img src="images/tg.png" width="100px" height="94px"></a>
+      </div>
+    </div>
+    <div class="contacts-right">
+    <img src="images/addres4.png" style="border-radius: 13px; margin-top: 1em;" height="490px" width="480px" class="addresimage">
+  <a href="https://yandex.ru/maps" class="route-btn"><img src="images/Group 4.png" width="370" height="160"></a>
+</div>
+  </section>
+  <script>
+  const animatedElements = document.querySelectorAll('.animate');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated'); // ставим флаг чтобы не повторялось
+        entry.target.style.opacity = 1; // страховка
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
+
+
+
+
